@@ -30,7 +30,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, className = '' }) => {
     <div
       className={`w-full overflow-x-auto bg-white rounded-lg shadow-md ${className}`}
     >
-      <div className="min-w-800 p-5 relative">
+      <div className="min-w-1200 p-5 relative">
         <TimelineHeader dateRange={dateRange} totalLanes={totalLanes} />
         <div className="relative space-y-2">
           {lanes.map((lane, laneIndex) => (

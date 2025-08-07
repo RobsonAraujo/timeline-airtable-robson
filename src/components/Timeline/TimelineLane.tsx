@@ -9,7 +9,7 @@ interface TimelineLaneProps {
 }
 
 const LANE_PADDING = 24;
-const CONTAINER_WIDTH = 800;
+const CONTAINER_WIDTH = 1200;
 
 const TimelineLane: React.FC<TimelineLaneProps> = ({ items, dateRange }) => {
   return (
@@ -23,12 +23,10 @@ const TimelineLane: React.FC<TimelineLaneProps> = ({ items, dateRange }) => {
         );
         left += LANE_PADDING;
 
-        const minWidth = Math.max(60, item.name.length * 8); // 8px por caractere
+        const minWidth = Math.max(120, item.name.length * 10);
         width = Math.max(width, minWidth);
 
-        if (left + width > CONTAINER_WIDTH - LANE_PADDING) {
-          width = CONTAINER_WIDTH - LANE_PADDING - left;
-        }
+        const maxWidth = Math.max(width, minWidth);
 
         return (
           <TimelineItemComponent
@@ -37,9 +35,8 @@ const TimelineLane: React.FC<TimelineLaneProps> = ({ items, dateRange }) => {
             itemIndex={itemIndex}
             style={{
               left: `${left}px`,
-              width: `${width}px`,
+              width: `${maxWidth}px`,
               minWidth: minWidth,
-              maxWidth: CONTAINER_WIDTH - 2 * LANE_PADDING,
             }}
           />
         );
