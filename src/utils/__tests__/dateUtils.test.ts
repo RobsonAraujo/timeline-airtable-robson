@@ -22,7 +22,7 @@ describe('date util functions', () => {
 
   describe('formatDate', () => {
     it('formats a Date obj as "MMM dd"', () => {
-      const date = new Date(2024, 5, 10); // 10 de Junho de 2024
+      const date = new Date(2024, 5, 10);
       expect(formatDate(date)).toBe('Jun 10');
     });
   });
