@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, eachDayOfInterval } from 'date-fns';
+import { format, eachMonthOfInterval } from 'date-fns';
 
 interface TimelineHeaderProps {
   dateRange: { start: Date; end: Date };
@@ -10,13 +10,10 @@ const TimelineHeader: React.FC<TimelineHeaderProps> = ({
   dateRange,
   totalLanes,
 }) => {
-  const days = eachDayOfInterval({
+  const months = eachMonthOfInterval({
     start: dateRange.start,
     end: dateRange.end,
   });
-
-  const step = Math.max(1, Math.floor(days.length / 10));
-  const displayDays = days.filter((_, index) => index % step === 0);
 
   return (
     <div className="mb-6">
@@ -26,12 +23,12 @@ const TimelineHeader: React.FC<TimelineHeaderProps> = ({
         </div>
       </div>
       <div className="flex relative border-b border-gray-300 pb-2">
-        {displayDays.map((day, index) => (
+        {months.map((month, index) => (
           <div
             key={index}
             className="flex-1 text-center text-sm text-gray-500 relative"
           >
-            {format(day, 'MMM dd')}
+            {format(month, 'MMMM')}
             <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1-2 w-px h-2 bg-gray-300"></div>
           </div>
         ))}
