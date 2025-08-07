@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TimelineLane from '../../components/Timeline/TimelineLane';
-import { TimelineItem } from '../../types/timeline';
+import TimelineLane from '../TimelineLane';
+import { TimelineItem } from '../../../types/timeline';
 
 describe('TimelineLane', () => {
   const mockItems: TimelineItem[] = [
@@ -26,7 +26,7 @@ describe('TimelineLane', () => {
 
   it('renders all items in the lane', () => {
     render(<TimelineLane items={mockItems} dateRange={mockDateRange} />);
-    
+
     expect(screen.getByText('Item 1')).toBeInTheDocument();
     expect(screen.getByText('Item 2')).toBeInTheDocument();
   });
@@ -35,7 +35,7 @@ describe('TimelineLane', () => {
     const { container } = render(
       <TimelineLane items={[]} dateRange={mockDateRange} />
     );
-    
+
     expect(container.firstChild).toHaveClass('relative', 'h-16');
     expect(container.firstChild).toBeEmptyDOMElement();
   });
@@ -44,18 +44,18 @@ describe('TimelineLane', () => {
     const { container } = render(
       <TimelineLane items={mockItems} dateRange={mockDateRange} />
     );
-    
+
     const items = container.querySelectorAll('[title]');
     expect(items).toHaveLength(2);
-    
+
     // First item should be positioned at the start
     const firstItem = items[0] as HTMLElement;
     expect(firstItem.style.left).toBeDefined();
-    
+
     // Second item should be positioned after the first
     const secondItem = items[1] as HTMLElement;
     expect(secondItem.style.left).toBeDefined();
-    
+
     // Second item should be positioned further right than first item
     const firstLeft = parseInt(firstItem.style.left);
     const secondLeft = parseInt(secondItem.style.left);
@@ -66,7 +66,7 @@ describe('TimelineLane', () => {
     const { container } = render(
       <TimelineLane items={mockItems} dateRange={mockDateRange} />
     );
-    
+
     expect(container.firstChild).toHaveClass(
       'relative',
       'h-16',
