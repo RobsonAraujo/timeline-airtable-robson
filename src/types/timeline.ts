@@ -1,7 +1,7 @@
 export interface TimelineItem {
   id: number;
-  start: string; // YYYY-MM-DD format
-  end: string; // YYYY-MM-DD format
+  start: string;
+  end: string;
   name: string;
 }
 
