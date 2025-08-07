@@ -107,7 +107,14 @@ body {
 .text-gray-600 { color: #4b5563; }
 .text-gray-500 { color: #6b7280; }
 
-/* Cores variadas para items */
+
+.space-x-2 > * + * { margin-left: 0.5rem; }
+.bg-gray-100 { background-color: #f3f4f6; }
+.hover-bg-gray-100:hover { background-color: #f3f4f6; }
+.transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; }
+.justify-end { justify-content: flex-end; }
+
+
 .bg-green-500 { background-color: #10b981; }
 .hover-bg-green-600:hover { background-color: #059669; }
 .bg-purple-500 { background-color: #8b5cf6; }
