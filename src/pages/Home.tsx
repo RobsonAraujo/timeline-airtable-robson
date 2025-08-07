@@ -8,10 +8,10 @@ const Home: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Timeline Component
+            Task Timeline
           </h1>
           <p className="text-lg text-gray-600">
-            {timelineItems.length} timeline items to render
+            Hello! Here’s your task journey for today.
           </p>
         </div>
         <Timeline items={timelineItems} />
